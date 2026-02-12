@@ -495,8 +495,13 @@ footer {
     padding: 0 10px;
   }
 
-  #porque h1:last-of-type::before, #porque h1:last-of-type::after{
-    content: none;
+  .texto-final {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .texto-final .adornos {
+    display: none;
   }
 
   .contacto-links {
