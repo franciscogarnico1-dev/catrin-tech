@@ -436,6 +436,12 @@ footer {
 /* ======= AJUSTES MÓVIL 480px - 768px ======= */
 @media (max-width: 768px) {
 
+  .card:hover,.contact-card:hover{
+    transform: none;
+    background: rgba(225, 255, 255, 0.0045);
+    box-shadow: 0 0 0 rgba(212);
+  }
+
   .tab:active {
     transform: none !important;
     box-shadow: 0 8px 20px rgba(212,175,55,0.3) !important;
@@ -480,6 +486,13 @@ footer {
     max-width: 100% !important;
     height: auto !important;
     min-height: 200px;
+  }
+
+  #porque h1{
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-align: center;
+    margin: 20px auto;
   }
 
   .contacto-links {
