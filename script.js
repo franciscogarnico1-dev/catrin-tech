@@ -1,15 +1,14 @@
 const tabs = document.querySelectorAll(".tab");
 const contents = document.querySelectorAll(".tab-content");
 
-tabs.forEach(tab => {
+tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-
     const current = document.querySelector(".tab-content.active");
     const next = document.getElementById(tab.dataset.tab);
 
     if (current === next) return;
 
-    tabs.forEach(t => t.classList.remove("active"));
+    tabs.forEach((t) => t.classList.remove("active"));
     tab.classList.add("active");
     current.classList.remove("active");
 
@@ -27,8 +26,6 @@ tabs.forEach(tab => {
           card.style.transform = "translateY(0)";
         }, index * 120);
       });
-
     }, 150);
-
   });
 });
