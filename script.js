@@ -29,3 +29,26 @@ tabs.forEach((tab) => {
     }, 150);
   });
 });
+
+// --- Structured Data para Catrin Tech ---
+(function () {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Catrin Tech",
+    url: "https://franciscogarnico1-dev.github.io/catrin-tech/",
+    logo: "https://franciscogarnico1-dev.github.io/catrin-tech/img/logo.png",
+    sameAs: ["https://www.instagram.com/catrin_tech", "https://www.facebook.com/share/14U4r5vojQ2/"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+525569079900",
+      contactType: "customer service",
+      areaServed: "Global",
+      availableLanguage: ["Spanish", "English"],
+    },
+  };
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = JSON.stringify(schema);
+  document.head.appendChild(script);
+})();
