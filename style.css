@@ -569,15 +569,6 @@ footer {
     padding: 0 10px;
   }
 
-  .texto-final {
-    text-align: center;
-    font-size: 1.1rem;
-  }
-
-  .texto-final .adornos {
-    display: none;
-  }
-
   .contacto-links {
     display: flex !important;
     flex-direction: column !important;
