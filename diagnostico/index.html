@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Diagnóstico Estratégico | Catrín Tech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #0f0f0f;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 60px auto;
+        padding: 30px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #d4af37;
+      }
+
+      p {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #cccccc;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input,
+      select,
+      textarea {
+        margin-bottom: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        border: none;
+        font-size: 14px;
+      }
+
+      button {
+        padding: 14px;
+        background-color: #d4af37;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #b9962f;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Solicita tu Diagnóstico Estratégico</h1>
+      <p>Completa la información para evaluar si tu negocio es apto para implementar un Sistema de Crecimiento Digital con Catrín Tech.</p>
+
+      <form action="https://formsubmit.co/TUCORREOAQUI" method="POST">
+        <input type="text" name="Nombre" placeholder="Nombre completo" required />
+
+        <input type="text" name="Empresa" placeholder="Empresa / Proyecto" required />
+
+        <input type="text" name="Ciudad" placeholder="Ciudad" required />
+
+        <textarea name="Actividad" placeholder="¿A qué se dedica tu negocio?" required></textarea>
+
+        <select name="Objetivo" required>
+          <option value="">¿Cuál es tu principal objetivo?</option>
+          <option>Más clientes</option>
+          <option>Más ventas</option>
+          <option>Posicionamiento</option>
+          <option>Lanzamiento</option>
+        </select>
+
+        <select name="Facturación" required>
+          <option value="">¿Cuánto facturas mensualmente?</option>
+          <option>Menos de 20k</option>
+          <option>20k–50k</option>
+          <option>50k–100k</option>
+          <option>100k+</option>
+        </select>
+
+        <select name="Inversión" required>
+          <option value="">¿Cuánto estás dispuesto a invertir mensualmente?</option>
+          <option>5k–10k</option>
+          <option>10k–20k</option>
+          <option>20k+</option>
+        </select>
+
+        <textarea name="Situación" placeholder="Describe brevemente tu situación actual"></textarea>
+
+        <button type="submit">Solicitar Evaluación</button>
+      </form>
+    </div>
+  </body>
+</html>
