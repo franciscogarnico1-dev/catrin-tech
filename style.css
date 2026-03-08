@@ -116,8 +116,8 @@ h1 {
   height: 0;
 }
 
-/* WHATSAPP */
-.whatsapp-float {
+/* Formulario */
+.button-float {
   position: fixed;
   bottom: 25px;
   right: 25px;
@@ -131,7 +131,7 @@ h1 {
   z-index: 999;
   transition: transform 0.3s ease;
 }
-.whatsapp-float:hover {
+.button-float:hover {
   transform: scale(1.05);
 }
 

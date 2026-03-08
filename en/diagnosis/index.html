@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Strategic Diagnosis | Catrin Tech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.10/build/css/intlTelInput.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="icon" type="image/png" href="../../img/logo.png" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #0f0f0f;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      .lang-switch {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 14px;
+        z-index: 1000;
+      }
+      .lang-switch a {
+        color: #d4af37;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+      .badge {
+        text-align: center;
+        color: #d4af37;
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+      .container {
+        max-width: 700px;
+        margin: 60px auto;
+        padding: 30px;
+        border: 1px solid #d4af3757;
+        border-radius: 8px;
+        box-shadow: 0 0 50px #c49c2215;
+      }
+      h1 {
+        text-align: center;
+        color: #d4af37;
+      }
+      p {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #ccc;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      input,
+      select,
+      textarea {
+        margin-bottom: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        background: rgba(73, 65, 27, 0.692);
+        color: #fff;
+        box-sizing: border-box;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #d4af37;
+      }
+
+      button {
+        padding: 14px;
+        font-size: 1rem;
+        background: #e0b62b;
+        color: #000;
+        font-weight: bold;
+        border-radius: 100px;
+        cursor: pointer;
+        box-shadow: 0 15px 80px rgba(202, 155, 16, 0.3);
+        margin: 20px auto;
+        display: block;
+        border: none;
+      }
+
+      button:hover {
+        background: #c49b22;
+        transform: translateY(-5px);
+        transition: 0.3s;
+      }
+
+      .progress {
+        text-align: center;
+        color: #d4af37;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .form-step {
+        opacity: 0;
+        transform: translateY(15px);
+        transition: 0.35s;
+        position: absolute;
+        width: 100%;
+        pointer-events: none;
+      }
+
+      .form-step.active {
+        opacity: 1;
+        transform: translateY(0);
+        position: relative;
+        pointer-events: auto;
+      }
+
+      .iti {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      .iti input {
+        background: rgba(73, 65, 27, 0.692);
+        color: #fff;
+        padding-left: 10px;
+      }
+      .iti__selected-flag {
+        background: rgba(73, 65, 27, 0.692) !important;
+        border-radius: 6px 0 0 6px;
+        padding-left: 10px;
+      }
+
+      .iti__country-list {
+        background: #111 !important;
+        border: 1px solid #d4af37;
+        max-height: 220px;
+        overflow-y: auto;
+      }
+
+      .iti__country {
+        color: #fff;
+        padding: 10px;
+      }
+      .iti__country:hover {
+        background: #d4af37;
+        color: #000;
+      }
+
+      .iti__search-input {
+        background: #222 !important;
+        color: #fff !important;
+        border: none !important;
+        padding: 10px;
+      }
+
+      .iti__selected-dial-code {
+        margin-right: 15px;
+        font-weight: 500;
+      }
+
+      select {
+        appearance: none;
+      }
+      select option {
+        background: #222;
+        color: #fff;
+      }
+
+      input:-webkit-autofill {
+        -webkit-text-fill-color: #fff;
+        transition: background-color 9999s ease-in-out 0s;
+        box-shadow: 0 0 0 1000px rgba(73, 65, 27, 0.692) inset;
+      }
+
+      input::selection,
+      textarea::selection {
+        background: #d4af37;
+        color: #000;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: #1a1a1a;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 25%;
+        background: linear-gradient(90deg, #d4af37, #e0b62b);
+        border-radius: 20px;
+        transition: width 0.35s ease;
+        box-shadow: 0 0 10px #d4af37;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="lang-switch">
+      <a href="../../diagnostico/index.html" onclick="localStorage.setItem('lang', 'es')">ESP</a>
+      |
+      <a href="../../en/diagnosis/index.html" onclick="localStorage.setItem('lang', 'en')">ENG</a>
+    </div>
+
+    <div class="container">
+      <h1>Request Your Strategic Diagnosis</h1>
+
+      <div class="badge">Free diagnosis • Evaluation within 24 hours</div>
+
+      <p>Complete the information to evaluate if your business is suitable to implement a Digital Growth System with Catrin Tech.</p>
+
+      <div class="progress">
+        Step
+        <span id="step-number">1</span>
+        of 4
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <form action="https://formsubmit.co/catrintech@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://catrintech.com/en/thanks/" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <div class="form-step active">
+          <input type="text" name="Name" placeholder="Full name" required />
+
+          <input type="tel" id="telefono" name="Phone" placeholder="Phone or WhatsApp" maxlength="15" pattern="[0-9]{7,15}" required />
+
+          <input type="text" name="Company" placeholder="Company / Project" required />
+
+          <button type="button" onclick="nextStep()">Continue</button>
+        </div>
+
+        <div class="form-step">
+          <input type="text" name="City" placeholder="City" required />
+
+          <input type="text" name="Social" placeholder="Instagram, website or social media" />
+
+          <textarea name="Business" maxlength="800" placeholder="What does your business do?" required></textarea>
+
+          <button type="button" onclick="nextStep()">Continue</button>
+        </div>
+
+        <div class="form-step">
+          <select name="Goal" required>
+            <option value="">What is your main goal?</option>
+            <option>More clients</option>
+            <option>More sales</option>
+            <option>Brand positioning</option>
+            <option>Product launch</option>
+          </select>
+
+          <select name="Revenue" required>
+            <option value="">What is your monthly revenue?</option>
+            <option>Less than 20k</option>
+            <option>20k – 50k</option>
+            <option>50k – 100k</option>
+            <option>100k+</option>
+          </select>
+
+          <select name="Investment" required>
+            <option value="">How much are you willing to invest monthly?</option>
+            <option>5k – 10k</option>
+            <option>10k – 20k</option>
+            <option>20k+</option>
+          </select>
+
+          <select name="Start" required>
+            <option value="">When would you like to start?</option>
+            <option>Immediately</option>
+            <option>In 1 month</option>
+            <option>In 3 months</option>
+            <option>Just exploring</option>
+          </select>
+
+          <select name="Decision" required>
+            <option value="">Are you the decision maker?</option>
+            <option>Yes</option>
+            <option>With a partner</option>
+            <option>No</option>
+          </select>
+
+          <button type="button" onclick="nextStep()">Continue</button>
+        </div>
+
+        <div class="form-step">
+          <textarea name="Situation" required placeholder="Briefly describe your current situation"></textarea>
+
+          <button type="submit">Request Free Strategic Diagnosis</button>
+
+          <p style="font-size: 12px; text-align: center; color: #888; margin-top: 10px">Your data is protected and will not be shared.</p>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const steps = document.querySelectorAll(".form-step");
+      let currentStep = 0;
+
+      function nextStep() {
+        const currentStepElement = steps[currentStep];
+        const inputs = currentStepElement.querySelectorAll("input,select,textarea");
+
+        for (let input of inputs) {
+          if (!input.checkValidity()) {
+            input.reportValidity();
+            return;
+          }
+        }
+
+        steps[currentStep].classList.remove("active");
+
+        currentStep++;
+
+        steps[currentStep].classList.add("active");
+
+        document.getElementById("step-number").innerText = currentStep + 1;
+
+        const progress = document.getElementById("progress-fill");
+        progress.style.width = ((currentStep + 1) / steps.length) * 100 + "%";
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.10/build/js/intlTelInput.min.js"></script>
+
+    <script>
+      const input = document.querySelector("#telefono");
+
+      const browserLang = navigator.language || navigator.userLanguage;
+
+      let country = "us";
+
+      if (browserLang.startsWith("es-MX")) country = "mx";
+      else if (browserLang.startsWith("es-ES")) country = "es";
+      else if (browserLang.startsWith("es")) country = "mx";
+      else if (browserLang.startsWith("en")) country = "us";
+
+      const savedLang = localStorage.getItem("lang");
+
+      if (savedLang === "es") country = "mx";
+      if (savedLang === "en") country = "us";
+
+      window.intlTelInput(input, {
+        initialCountry: country,
+        preferredCountries: ["mx", "us", "es", "ar", "co"],
+        separateDialCode: true,
+      });
+
+      input.addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, "");
+      });
+    </script>
+
+    <script>
+      const userLang = navigator.language || navigator.userLanguage;
+
+      if (!localStorage.getItem("lang")) {
+        if (userLang.startsWith("es")) {
+          localStorage.setItem("lang", "es");
+          window.location.href = "../../diagnostico/index.html";
+        } else {
+          localStorage.setItem("lang", "en");
+          window.location.href = "../../en/diagnosis/index.html";
+        }
+      }
+    </script>
+  </body>
+</html>
