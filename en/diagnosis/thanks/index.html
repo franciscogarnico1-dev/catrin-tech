@@ -1,16 +1,20 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Request Received | Catrín Tech</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="../img/logo.png" />
-    <meta http-equiv="refresh" content="10;url=/" />
+
+    <link rel="icon" type="image/png" href="../../img/logo.png" />
+
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
     <style>
       body {
-        background-color: #0f0f0f;
-        color: #ffffff;
+        background: #0f0f0f;
+        color: #fff;
         font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
@@ -22,52 +26,113 @@
 
       .box {
         max-width: 700px;
-        margin: 60px auto;
-        padding: 30px;
+        padding: 45px;
         border: 1px solid #d4af3757;
-        border-radius: 8px;
-        box-shadow: 0px 0px 50px #c49c2215;
+        border-radius: 10px;
+        box-shadow: 0 0 60px #c49c2215;
       }
 
       h1 {
         color: #d4af37;
         margin-bottom: 20px;
+        font-size: 34px;
       }
 
       p {
-        color: #cccccc;
-        margin-bottom: 30px;
+        color: #ccc;
+        margin-bottom: 22px;
+        line-height: 1.6;
+        font-size: 16px;
       }
 
-      a {
-        background-color: #d4af37;
-        color: #000;
-        padding: 14px 24px;
-        text-decoration: none;
-        border-radius: 100px;
+      .highlight {
+        color: #d4af37;
         font-weight: bold;
       }
 
+      a {
+        display: inline-block;
+        background: #d4af37;
+        color: #000;
+        padding: 14px 28px;
+        text-decoration: none;
+        border-radius: 100px;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: 0.25s;
+      }
+
       a:hover {
-        background-color: #b9962f;
+        background: #b9962f;
+        transform: translateY(-2px);
       }
 
       .timer {
-        margin-top: 20px;
+        margin-top: 28px;
         font-size: 14px;
         color: #888;
+      }
+
+      .brand {
+        margin-bottom: 25px;
+        font-size: 14px;
+        color: #888;
+      }
+
+      .brand span {
+        color: #d4af37;
+        font-weight: bold;
       }
     </style>
   </head>
 
   <body>
     <div class="box">
+      <div class="brand">
+        Request sent to
+        <span>Catrín Tech</span>
+      </div>
+
       <h1>Request Received</h1>
-      <p>Your information has been sent correctly. We will review your case and contact you shortly.</p>
+
+      <p>Your information has been successfully submitted.</p>
+
+      <p>
+        Our team will review your business to determine if a
+        <span class="highlight">Digital Growth System</span>
+        can be implemented.
+      </p>
+
+      <p>If your business qualifies, we will contact you with the next steps.</p>
 
       <a href="/">Return to Home</a>
 
-      <div class="timer">You will be automatically redirected in 10 seconds.</div>
+      <div class="timer">
+        You will be redirected automatically in
+        <span id="count">10</span>
+        seconds
+      </div>
     </div>
+
+    <script>
+      let seconds = 10;
+      const counter = document.getElementById("count");
+
+      const interval = setInterval(() => {
+        seconds--;
+        counter.textContent = seconds;
+
+        if (seconds <= 0) {
+          clearInterval(interval);
+          window.location.replace("/");
+        }
+      }, 1000);
+
+      history.replaceState(null, null, location.href);
+
+      window.addEventListener("popstate", function () {
+        history.go(1);
+      });
+    </script>
   </body>
 </html>
