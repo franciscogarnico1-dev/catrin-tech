@@ -15,11 +15,26 @@
     <link rel="canonical" href="https://catrintech.com/" />
     <link rel="alternate" hreflang="es" href="https://catrintech.com/" />
     <link rel="alternate" hreflang="en" href="https://catrintech.com/en/" />
-    <link rel="icon" type="image/png" href="img/logo.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="img/logo.jpg" />
+    <link
+      rel="preload"
+      href="style.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Merriweather&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
   </head>
   <body>
     <div class="language-switch">
@@ -28,7 +43,7 @@
       <a href="en/index.html">ENG</a>
     </div>
     <header class="header">
-      <img src="img/logo.png" class="logo" alt="Catrin Tech" loading="lazy" />
+      <img src="img/logo.jpg" class="logo" alt="Catrin Tech" loading="lazy" />
       <h1 class="title">Catrin Tech</h1>
       <h2 class="subtitulo">En Catrin Tech construimos sistemas digitales que transforman tu precensia online en un flujo constante de clientes</h2>
 
@@ -194,7 +209,7 @@
         <div class="project">
           <div class="project-video">
             <video autoplay muted loop playsinline>
-              <source src="video/proyecto1.mp4" type="video/mp4" />
+              <source src="video/proyecto1.mp4" loading="lazy" type="video/mp4" />
             </video>
           </div>
 
@@ -221,7 +236,7 @@
         <div class="project">
           <div class="project-video">
             <video autoplay muted loop playsinline>
-              <source src="video/proyecto2.mp4" type="video/mp4" />
+              <source src="video/proyecto2.mp4" loading="lazy" type="video/mp4" />
             </video>
           </div>
 
