@@ -820,3 +820,74 @@ body::before {
 .language-switch a:hover {
   color: #fff;
 }
+
+/* ===== PROYECTOS RESPONSIVE (MÓVIL) ===== */
+@media (max-width: 768px) {
+  .project {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    margin-top: 50px !important;
+  }
+
+  .project + .project {
+    margin-top: 70px !important;
+    padding-top: 50px !important;
+  }
+
+  /* Quitar alternancia de columnas */
+  .project:nth-child(even) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .project-video {
+    width: 100%;
+  }
+
+  .project-video video {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .project-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .project-info h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .project-type {
+    font-size: 0.8rem !important;
+  }
+
+  .project-info p {
+    text-align: center !important;
+    font-size: 0.95rem !important;
+  }
+
+  .project-points {
+    margin-top: 15px;
+  }
+
+  .project-points li {
+    font-size: 0.9rem !important;
+    text-align: left;
+  }
+
+  /* CTA */
+  .cta-proyecto {
+    margin-top: 60px !important;
+    padding: 0 10px;
+  }
+
+  .cta-proyecto h2 {
+    font-size: 1.4rem !important;
+  }
+
+  .cta-proyecto p {
+    font-size: 0.95rem !important;
+  }
+}
